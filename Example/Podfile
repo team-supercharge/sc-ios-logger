@@ -1,0 +1,13 @@
+platform :ios, '11.0'
+use_frameworks!
+
+target 'Logger_Example' do
+  pod 'SwiftLint'
+  pod 'Logger', :path => '../'
+
+
+  target 'Logger_Tests' do
+    inherit! :search_paths
+
+  end
+end
