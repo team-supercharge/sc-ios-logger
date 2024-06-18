@@ -16,10 +16,10 @@ public final class CrashlyticsOutput {
     // MARK: - Types
 
     public enum Mode {
-        case onlyNonFatals(nonFatalFrom: Level)
-        case nonFatalsWithLog(logFrom: Level, nonFatalFrom: Level)
+        case onlyNonFatals(nonFatalFrom: LogLevel)
+        case nonFatalsWithLog(logFrom: LogLevel, nonFatalFrom: LogLevel)
 
-        var nonFatalFrom: Level {
+        var nonFatalFrom: LogLevel {
             switch self {
             case .onlyNonFatals(let nonFatalFrom):
                 return nonFatalFrom

@@ -10,7 +10,7 @@ public final class PostfixFormatter {
 
     // MARK: - Functions
 
-    private func postfix(by level: Level) -> String {
+    private func postfix(by level: LogLevel) -> String {
         switch level {
         case .verbose:
             return "\n🗯 [VERBOSE]\n"

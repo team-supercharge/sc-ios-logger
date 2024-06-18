@@ -9,9 +9,9 @@ class DefaultLoggerService {
     public let name: LoggerServiceName
     public var outputs: [Output] = {
         #if DEBUG
-        let logLevel: Level = .debug
+        let logLevel: LogLevel = .debug
         #else
-        let logLevel: Level = .error
+        let logLevel: LogLevel = .error
         #endif
         return [ConsoleOutput(minLogLevel: logLevel)]
     }()

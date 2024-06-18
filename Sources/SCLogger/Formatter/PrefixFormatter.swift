@@ -10,7 +10,7 @@ public final class PrefixFormatter {
 
     // MARK: - Functions
 
-    private func prefix(by level: Level) -> String {
+    private func prefix(by level: LogLevel) -> String {
         switch level {
         case .verbose:
             return "🗯 [VERBOSE]\n"

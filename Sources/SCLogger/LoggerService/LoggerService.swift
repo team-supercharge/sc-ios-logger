@@ -58,7 +58,7 @@ extension LoggerService {
 extension LoggerService {
     func log(_ closure: @autoclosure @escaping () -> Any?,
              category: Category? = nil,
-             level: Level,
+             level: LogLevel,
              fileName: String = #file,
              functionName: String = #function,
              lineNumber: Int = #line) {

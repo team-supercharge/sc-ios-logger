@@ -22,11 +22,11 @@ public final class ConsoleOutput {
     public var filters = [Filter]()
 
     private let mode: Mode
-    private let minLogLevel: Level
+    private let minLogLevel: LogLevel
 
     // MARK: - Initialization
 
-    public init(minLogLevel: Level, mode: Mode = .print) {
+    public init(minLogLevel: LogLevel, mode: Mode = .print) {
         self.minLogLevel = minLogLevel
         self.mode = mode
     }

@@ -1,9 +1,9 @@
 //
-//  Level.swift
+//  LogLevel.swift
 //  SCLogger
 //
 
-public enum Level: String, Comparable {
+public enum LogLevel: String, Comparable {
     case verbose
     case debug
     case info
@@ -44,7 +44,7 @@ public enum Level: String, Comparable {
 
     // MARK: - Comparable
 
-    public static func < (lhs: Level, rhs: Level) -> Bool {
+    public static func < (lhs: LogLevel, rhs: LogLevel) -> Bool {
         return lhs.precedenceLevel < rhs.precedenceLevel
     }
 }

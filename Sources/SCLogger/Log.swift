@@ -187,7 +187,7 @@ public struct Log {
 
     public static func log(_ closure: @autoclosure @escaping () -> Any?,
                            category: Category? = nil,
-                           level: Level,
+                           level: LogLevel,
                            loggerServiceName: LoggerServiceName = .default,
                            fileName: String = #file,
                            functionName: String = #function,

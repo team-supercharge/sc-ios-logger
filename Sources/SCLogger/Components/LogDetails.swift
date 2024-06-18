@@ -7,13 +7,13 @@ public struct LogDetails {
     public var message: String
     public var originalMessage: Any?
     public var category: Category?
-    public var level: Level
+    public var level: LogLevel
     public let metaInfo: LogMetaInfo
 
     public init(message: String,
                 originalMessage: Any?,
                 category: Category?,
-                level: Level,
+                level: LogLevel,
                 metaInfo: LogMetaInfo) {
         self.message = message
         self.originalMessage = originalMessage
