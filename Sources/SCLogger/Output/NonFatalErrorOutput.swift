@@ -1,17 +1,14 @@
 //
-//  CrashlyticsOutput.swift
+//  NonFatalErrorOutput.swift
 //  SCLogger
 //
 
-import Firebase
-
-// NOTE: If you don't want to lose any message, setup Firebase Crashlytics first and
-// than add CrashlyticsOutput to you logger service
+import Foundation
 
 // Note: Do not forget to mark properties as private in the logged structure,
 // becase it's not allowed to send personal data to a 3rd pary (GDPR)
 
-public final class CrashlyticsOutput {
+public final class NonFatalErrorOutput {
 
     // MARK: - Types
 
@@ -35,23 +32,27 @@ public final class CrashlyticsOutput {
     public var filters = [Filter]()
 
     private let mode: Mode
+    private let loggerClosure: ((String) -> Void)?
+    private let nonFatalLoggerClosure: ((Error) -> Void)?
 
     // MARK: Init
 
-    public init(mode: Mode) {
+    public init(mode: Mode, loggerClosure: ((String) -> Void)?, nonFatalLoggerClosure: ((Error) -> Void)?) {
         self.mode = mode
+        self.loggerClosure = loggerClosure
+        self.nonFatalLoggerClosure = nonFatalLoggerClosure
     }
 }
 
 // MARK: - Output
 
-extension CrashlyticsOutput: Output {
+extension NonFatalErrorOutput: Output {
     public func write(details: LogDetails, finalMessage: String) {
 
-        // Log everything to Crashlytics
+        // Log everything to the injected log service
         if case .nonFatalsWithLog(let logFrom, _) = mode,
            details.level >= logFrom {
-            Crashlytics.crashlytics().log(finalMessage)
+            loggerClosure?(finalMessage)
         }
 
         guard details.level >= mode.nonFatalFrom else { return }
@@ -66,6 +67,6 @@ extension CrashlyticsOutput: Output {
             .joined(separator: " ")
         let error = NSError(domain: errorDomain, code: -1001, userInfo: userInfo)
 
-        Crashlytics.crashlytics().record(error: error)
+        nonFatalLoggerClosure?(error)
     }
 }
