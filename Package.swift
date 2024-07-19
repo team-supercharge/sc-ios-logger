@@ -17,14 +17,12 @@ let package = Package(
                 "SCLogger"
             ])
     ],
-    dependencies: [
-        .package(url: "https://github.com/firebase/firebase-ios-sdk.git", .upToNextMajor(from: "10.27.0")),
-    ],
+    dependencies: [],
     targets: [
         .target(
             name: "SCLogger",
-            dependencies: [.product(name: "FirebaseCrashlytics", package: "firebase-ios-sdk")],
-            path: "Sources/SCLogger"),
+            dependencies: [],
+            path: "Sources/SCLogger",
         .testTarget(
             name: "SCLoggerTests",
             dependencies: ["SCLogger"],
