@@ -22,11 +22,6 @@ Logging framework for swift.
 
 `Formatter`:  a protocol to provide a public interface to define a message formatter. There are predefined formatters like `PrefixFormatter` and `MetaInfoFormatter`.
 
-
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 ## Requirements
 
 ## Installation
